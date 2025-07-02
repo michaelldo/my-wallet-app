@@ -45,14 +45,14 @@ function listarRendas() {
     rendasMes.forEach((renda) => {
         const li = document.createElement("li");
         li.className = "list-group-item d-flex justify-content-between";
-        li.innerHTML = `<span>R$ ${renda.valor.toFixed(2)}</span>`;
+        li.innerHTML = `${renda.nome} <span>R$ ${renda.valor.toFixed(2)}</span>`;
         lista.appendChild(li);
     });
 }
 
 // Gastos Fixos
 function adicionarGastoFixo() {
-    
+
     const nome = document.getElementById("fixoNome").value.trim();
     const valorInput = document.getElementById("fixoValor").value.replace("R$", "").trim();
     const valor = parseFloat(valorInput.replace(".", "").replace(",", "."));
@@ -119,7 +119,7 @@ function listarGastosVariaveis() {
     variaveisMes.forEach((item) => {
         const li = document.createElement("li");
         li.className = "list-group-item d-flex justify-content-between";
-        li.innerHTML = `${item.categoria} <span>R$ ${item.valor.toFixed(2)}</span>`;
+        li.innerHTML = `${item.nome} <span>R$ ${item.valor.toFixed(2)}</span>`;
         lista.appendChild(li);
     });
 }
@@ -153,11 +153,11 @@ function atualizarGrafico(renda, fixos, variaveis) {
     graficoResumo = new Chart(ctx, {
         type: "bar",
         data: {
-            labels: ["Renda", "Gastos Fixos", "Gastos Variáveis"],
+            labels: ["Renda", "Gastos Variáveis", "Gastos Fixos"],
             datasets: [{
                 label: "Resumo",
-                data: [renda, fixos, variaveis],
-                backgroundColor: ["#28a745", "#ffc107", "#dc3545"]
+                data: [renda, variaveis, fixos],
+                backgroundColor: ["#28a745", "#dc3545", "#ffc107"]
             }]
         },
         options: {

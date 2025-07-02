@@ -22,44 +22,49 @@
             <label for="filtroMes" class="form-label">Filtrar por mês e ano</label>
             <input type="text" id="filtroMes" class="form-control mx-auto" placeholder="Escolha o mês/ano" />
         </div>
-
-        <div class="card bg-secondary mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Adicionar Renda</h5>
-                <input type="text" id="rendaNome" class="form-control mb-2" placeholder="Fonte de renda" />
-                <input type="text" id="rendaInput" class="form-control mb-2" placeholder="Valor da renda (R$)" />
-                <button onclick="adicionarRenda()" class="btn btn-success w-100">Adicionar</button>
-                <ul id="listaRendas" class="list-group list-group-flush mt-3"></ul>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card bg-secondary mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Adicionar Renda</h5>
+                        <input type="text" id="rendaNome" class="form-control mb-2" placeholder="Adicione uma renda" />
+                        <input type="text" id="rendaInput" class="form-control mb-2"
+                            placeholder="Valor da renda (R$)" />
+                        <button onclick="adicionarRenda()" class="btn btn-success w-100">Adicionar</button>
+                        <ul id="listaRendas" class="list-group list-group-flush mt-3"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gastos Variáveis</h5>
+                        <input type="text" id="variavelNome" class="form-control mb-2" placeholder="Nome do gasto" />
+                        <input type="text" id="variavelValor" class="form-control mb-2" placeholder="Valor (R$)" />
+                        <button onclick="adicionarGastoVariavel()" class="btn btn-danger w-100">Adicionar</button>
+                        <ul id="listaVariaveis" class="list-group list-group-flush mt-3"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Gastos Fixos</h5>
+                        <input type="text" id="fixoNome" class="form-control mb-2" placeholder="Nome do gasto fixo" />
+                        <input type="text" id="fixoValor" class="form-control mb-2" placeholder="Valor fixo (R$)" />
+                        <button onclick="adicionarGastoFixo()" class="btn btn-warning w-100">Adicionar</button>
+                        <ul id="listaFixos" class="list-group list-group-flush mt-3"></ul>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="card bg-secondary mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Gastos Fixos</h5>
-                <input type="text" id="fixoNome" class="form-control mb-2" placeholder="Nome do gasto fixo" />
-                <input type="text" id="fixoValor" class="form-control mb-2" placeholder="Valor fixo (R$)" />
-                <button onclick="adicionarGastoFixo()" class="btn btn-warning w-100">Adicionar</button>
-                <ul id="listaFixos" class="list-group list-group-flush mt-3"></ul>
-            </div>
-        </div>
-
-        <div class="card bg-secondary mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Gastos Variáveis</h5>
-                <input type="text" id="variavelNome" class="form-control mb-2" placeholder="Categoria" />
-                <input type="text" id="variavelValor" class="form-control mb-2" placeholder="Valor (R$)" />
-                <button onclick="adicionarGastoVariavel()" class="btn btn-danger w-100">Adicionar</button>
-                <ul id="listaVariaveis" class="list-group list-group-flush mt-3"></ul>
-            </div>
-        </div>
-
         <div class="card bg-dark border-light mb-4">
             <div class="card-body">
                 <h5 class="card-title">Resumo</h5>
-                <p>💰 Renda: <strong class="text-success">R$ <span id="totalRenda">0,00</span></strong></p>
-                <p>🏠 Fixos: <strong class="text-warning">R$ <span id="totalFixos">0,00</span></strong></p>
-                <p>🛒 Variáveis: <strong class="text-danger">R$ <span id="totalVariaveis">0,00</span></strong></p>
-                <p>📊 Saldo: <strong class="text-info">R$ <span id="saldo">0,00</span></strong></p>
+                <p>💰 : <strong class="text-success">R$ <span id="totalRenda">0,00</span></strong></p>
+                <p>🏠 : <strong class="text-warning">R$ <span id="totalFixos">0,00</span></strong></p>
+                <p>🛒 : <strong class="text-danger">R$ <span id="totalVariaveis">0,00</span></strong></p>
+                <p>📊 : <strong class="text-info">R$ <span id="saldo">0,00</span></strong></p>
             </div>
         </div>
 
