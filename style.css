@@ -1,0 +1,49 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+#filtroMes {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+
+.list-group-item {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+input.form-control {
+  background-color: #343a40 !important;
+  color: #ffffff;
+  border: 1px solid #6c757d;
+  border-radius: 0.4rem;
+}
+
+input.form-control:focus {
+  background-color: #3e454d !important;
+  border-color: #adb5bd;
+  color: #fff;
+  box-shadow: none;
+}
+
+input.form-control::placeholder {
+  color: #ccc;
+}
+
+/* Corrige o tamanho e estilo do campo de mês/ano */
+.flatpickr-input {
+  max-width: 200px;
+  background-color: #343a40 !important;
+  color: #fff !important;
+  border: 1px solid #6c757d;
+  border-radius: 0.4rem;
+  text-align: center;
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  margin: 0 auto;
+}
