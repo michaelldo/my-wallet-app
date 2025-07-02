@@ -7,7 +7,7 @@ self.addEventListener('install', function (e) {
         './style.css',
         './app.js',
         './manifest.json',
-        // se adicionar 'icon.png', coloque aqui também: './icon.png'
+        './icon.png'
       ]);
     })
   );
