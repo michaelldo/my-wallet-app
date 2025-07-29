@@ -46,3 +46,18 @@ input.form-control::placeholder {
   font-size: 1rem;
   margin: 0 auto;
 }
+
+.saldo-positivo {
+  color: #7CFC00; /* verde claro */
+  font-weight: bold;
+}
+
+.saldo-negativo {
+  color: #FF7F7F; /* vermelho claro */
+  font-weight: bold;
+}
+
+.saldo-zero {
+  color: #87CEFA; /* azul claro */
+  font-weight: bold;
+}

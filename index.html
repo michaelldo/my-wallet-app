@@ -85,7 +85,7 @@
                         <p>💰 : <strong class="text-success">R$ <span id="totalRenda">0,00</span></strong></p>
                         <p>🏠 : <strong class="text-warning">R$ <span id="totalFixos">0,00</span></strong></p>
                         <p>🛒 : <strong class="text-danger">R$ <span id="totalVariaveis">0,00</span></strong></p>
-                        <p>📊 : <strong class="text-info">R$ <span id="saldo">0,00</span></strong></p>
+                        <p>📊 : <strong><span id="saldo" class="saldo-zero">R$ 0,00</span></strong></p>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de Edição -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarLabel">Editar Entrada</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="modalNome" class="form-control mb-3" placeholder="Nome" />
+                    <input type="text" id="modalValor" class="form-control" placeholder="Valor (R$)" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" id="btnSalvarEdicao">Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
