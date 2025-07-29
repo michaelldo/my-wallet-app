@@ -34,7 +34,6 @@ input.form-control::placeholder {
   color: #ccc;
 }
 
-/* Corrige o tamanho e estilo do campo de mês/ano */
 .flatpickr-input {
   max-width: 200px;
   background-color: #343a40 !important;
@@ -48,16 +47,16 @@ input.form-control::placeholder {
 }
 
 .saldo-positivo {
-  color: #7CFC00; /* verde claro */
+  color: #7CFC00; 
   font-weight: bold;
 }
 
 .saldo-negativo {
-  color: #FF7F7F; /* vermelho claro */
+  color: #FF7F7F;
   font-weight: bold;
 }
 
 .saldo-zero {
-  color: #87CEFA; /* azul claro */
+  color: #87CEFA;
   font-weight: bold;
 }

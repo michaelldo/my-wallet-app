@@ -1,4 +1,3 @@
-// Inicializa Flatpickr
 flatpickr("#filtroMes", {
   locale: "pt",
   plugins: [new monthSelectPlugin({
@@ -13,10 +12,10 @@ flatpickr("#filtroMes", {
 // Utilitários
 function formatarValor(valor) {
   return parseFloat(valor
-    .replace(/\s/g, "")     // Remove espaços
-    .replace("R$", "")      // Remove R$
-    .replace(/\./g, "")     // Remove pontos de milhar
-    .replace(",", ".")); // Troca vírgula por ponto)
+    .replace(/\s/g, "")
+    .replace("R$", "")
+    .replace(/\./g, "")
+    .replace(",", "."));
 }
 
 function formatarMoeda(valor) {
@@ -201,7 +200,7 @@ function excluirGastoVariavel(index) {
   atualizarResumo();
 }
 
-// ========== RESUMO ==========
+
 function atualizarResumo() {
   const mes = document.getElementById("filtroMes").value;
 
@@ -217,13 +216,10 @@ function atualizarResumo() {
   document.getElementById("totalRenda").textContent = totalRenda.toFixed(2);
   document.getElementById("totalFixos").textContent = totalFixos.toFixed(2);
   document.getElementById("totalVariaveis").textContent = totalVariaveis.toFixed(2);
-  // document.getElementById("saldo").textContent = saldo.toFixed(2);
 
   const saldoSpan = document.getElementById("saldo");
   saldoSpan.textContent = "R$ " + saldo.toFixed(2);
 
-
-  // Remove classes anteriores
   saldoSpan.classList.remove("saldo-positivo", "saldo-negativo", "saldo-zero");
 
   if (saldo > 0) {
@@ -270,7 +266,6 @@ function atualizarGrafico(renda, fixos, variaveis) {
   });
 }
 
-// ========== INIT ==========
 document.addEventListener("DOMContentLoaded", () => {
   const hoje = new Date();
   const mesAtual = hoje.toISOString().slice(0, 7);
@@ -300,7 +295,6 @@ function aplicarMascaraMonetaria(input) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Aplica máscara em todos os inputs de valor
   aplicarMascaraMonetaria(document.getElementById("rendaInput"));
   aplicarMascaraMonetaria(document.getElementById("fixoValor"));
   aplicarMascaraMonetaria(document.getElementById("variavelValor"));
