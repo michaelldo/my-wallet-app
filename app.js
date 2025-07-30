@@ -255,6 +255,7 @@ function atualizarGrafico(renda, fixos, variaveis) {
         y: {
           beginAtZero: true,
           ticks: {
+            color: "#f8f9fa",
             callback: (v) => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
           }
         }
@@ -360,3 +361,12 @@ document.getElementById("btnSalvarEdicao").addEventListener("click", () => {
   atualizarResumo();
   bootstrap.Modal.getInstance(document.getElementById("modalEditar")).hide();
 });
+
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('Service Worker registrado!', reg))
+      .catch(err => console.error('Erro ao registrar o Service Worker', err));
+  });
+}

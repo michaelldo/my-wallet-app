@@ -7,7 +7,9 @@ self.addEventListener('install', function (e) {
         './style.css',
         './app.js',
         './manifest.json',
-        './icon.png'
+        './icon.png',
+        './wallet.png',
+        './favicon.ico'
       ]);
     })
   );

@@ -10,6 +10,11 @@ body {
   padding: 0.6rem;
 }
 
+.card-title {
+  color: #f8f9fa;
+  text-align: center;
+}
+
 
 .list-group-item {
   background-color: transparent;
