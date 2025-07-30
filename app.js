@@ -60,8 +60,8 @@ function listarRendas() {
       li.innerHTML = `
         <span>${renda.nome}: ${formatarMoeda(renda.valor)}</span>
         <div>
-          <button class="btn btn-sm btn-outline-light me-1" onclick="editarRenda(${index})">✏️</button>
-          <button class="btn btn-sm btn-outline-danger" onclick="excluirRenda(${index})">🗑️</button>
+          <button class="btn btn-sm btn-outline-info me-1" onclick="editarRenda(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="excluirRenda(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
         </div>
       `;
       lista.appendChild(li);
@@ -117,8 +117,8 @@ function listarGastosFixos() {
     li.innerHTML = `
       <span>${item.nome}: R$ ${item.valor.toFixed(2)}</span>
       <div>
-        <button class="btn btn-sm btn-outline-light me-1" onclick="editarGastoFixo(${index})">✏️</button>
-        <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoFixo(${index})">🗑️</button>
+        <button class="btn btn-sm btn-outline-info me-1" onclick="editarGastoFixo(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoFixo(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
       </div>
     `;
     lista.appendChild(li);
@@ -174,8 +174,8 @@ function listarGastosVariaveis() {
       li.innerHTML = `
         <span>${item.nome}: R$ ${item.valor.toFixed(2)}</span>
         <div>
-          <button class="btn btn-sm btn-outline-light me-1" onclick="editarGastoVariavel(${index})">✏️</button>
-          <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoVariavel(${index})">🗑️</button>
+          <button class="btn btn-sm btn-outline-info me-1" onclick="editarGastoVariavel(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoVariavel(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
         </div>
       `;
       lista.appendChild(li);
@@ -257,6 +257,11 @@ function atualizarGrafico(renda, fixos, variaveis) {
           ticks: {
             color: "#f8f9fa",
             callback: (v) => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+          }
+        },
+        x: {
+          ticks: {
+            color: "#f8f9fa"
           }
         }
       },
