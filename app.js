@@ -60,8 +60,8 @@ function listarRendas() {
       li.innerHTML = `
         <span>${renda.nome}: ${formatarMoeda(renda.valor)}</span>
         <div>
-          <button class="btn btn-sm btn-outline-info me-1" onclick="editarRenda(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
-          <button class="btn btn-sm btn-outline-danger" onclick="excluirRenda(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="editarRenda(${index})"><i class="fa-solid fa-pen" style="color: #ffffff;" alt="Editar"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="excluirRenda(${index})"><i class="fa-solid fa-trash" style="color: #ffffff;" alt="Excluir"></i></button>
         </div>
       `;
       lista.appendChild(li);
@@ -119,8 +119,8 @@ function listarGastosFixos() {
     li.innerHTML = `
       <span>${item.nome}: R$ ${item.valor.toFixed(2)}</span>
       <div>
-        <button class="btn btn-sm btn-outline-info me-1" onclick="editarGastoFixo(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoFixo(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-1" onclick="editarGastoFixo(${index})"><i class="fa-solid fa-pen" style="color: #ffffff;" alt="Editar"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoFixo(${index})"><i class="fa-solid fa-trash" style="color: #ffffff;" alt="Excluir"></i></button>
       </div>
     `;
     lista.appendChild(li);
@@ -178,8 +178,8 @@ function listarGastosVariaveis() {
       li.innerHTML = `
         <span>${item.nome}: R$ ${item.valor.toFixed(2)}</span>
         <div>
-          <button class="btn btn-sm btn-outline-info me-1" onclick="editarGastoVariavel(${index})"><i class="fa-solid fa-feather-pointed" style="color: #ffffff;" alt="Editar"></i></button>
-          <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoVariavel(${index})"><i class="fa-solid fa-explosion" style="color: #ffffff;" alt="Excluir"></i></button>
+          <button class="btn btn-sm btn-outline-primary me-1" onclick="editarGastoVariavel(${index})"><i class="fa-solid fa-pen" style="color: #ffffff;" alt="Editar"></i></button>
+          <button class="btn btn-sm btn-outline-danger" onclick="excluirGastoVariavel(${index})"><i class="fa-solid fa-trash" style="color: #ffffff;" alt="Excluir"></i></button>
         </div>
       `;
       lista.appendChild(li);
