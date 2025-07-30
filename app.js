@@ -76,6 +76,8 @@ function editarRenda(index) {
 }
 
 function excluirRenda(index) {
+  if (!confirm("Tem certeza que deseja excluir esta renda?")) return;
+
   const mes = document.getElementById("filtroMes").value;
   let rendas = JSON.parse(localStorage.getItem("rendas") || "[]");
   const rendasMes = rendas.filter(r => r.mes === mes);
@@ -131,6 +133,8 @@ function editarGastoFixo(index) {
 }
 
 function excluirGastoFixo(index) {
+  if (!confirm("Tem certeza que deseja excluir este gasto fixo?")) return;
+
   const fixos = JSON.parse(localStorage.getItem("gastosFixos") || "[]");
   fixos.splice(index, 1);
   localStorage.setItem("gastosFixos", JSON.stringify(fixos));
@@ -190,6 +194,8 @@ function editarGastoVariavel(index) {
 }
 
 function excluirGastoVariavel(index) {
+  if (!confirm("Tem certeza que deseja excluir este gasto variável?")) return;
+
   const mes = document.getElementById("filtroMes").value;
   let variaveis = JSON.parse(localStorage.getItem("gastosVariaveis") || "[]");
   const doMes = variaveis.filter(v => v.mes === mes);
