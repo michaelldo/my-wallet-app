@@ -1,3 +1,6 @@
+const versaoApp = "1.0.0";
+document.getElementById("versao").innerText = "Versão " + versaoApp;
+
 flatpickr("#filtroMes", {
   locale: "pt",
   plugins: [new monthSelectPlugin({
