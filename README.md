@@ -4,7 +4,7 @@
 
 > ✅ [Acesse o app online](https://my-selfwallet-app.netlify.app/)  
 > 📱 Instale como PWA e use offline!
-
+> [![Netlify Status](https://api.netlify.com/api/v1/badges/a7f4f8a1-0774-420b-8ef9-c37cfa9be3fa/deploy-status)](https://app.netlify.com/projects/my-selfwallet-app/deploys)
 ---
 
 ## 📌 Funcionalidades
