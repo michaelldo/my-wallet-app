@@ -1,5 +1,35 @@
-const versaoApp = "1.0.0";
+const versaoApp = "1.1.0";
 document.getElementById("versao").innerText = "Versão " + versaoApp;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const hoje = new Date();
+  const mesAtual = hoje.toISOString().slice(0, 7);
+  document.getElementById("filtroMes").value = mesAtual;
+
+
+  listarRendas();
+  listarGastosFixos();
+  listarGastosVariaveis();
+  atualizarResumo();
+
+
+  document.getElementById("filtroMes").addEventListener("change", () => {
+    listarRendas();
+    listarGastosFixos();
+    listarGastosVariaveis();
+    atualizarResumo();
+  });
+
+  // Aplica máscaras nos inputs monetários
+  aplicarMascaraMonetaria(document.getElementById("rendaInput"));
+  aplicarMascaraMonetaria(document.getElementById("fixoValor"));
+  aplicarMascaraMonetaria(document.getElementById("variavelValor"));
+
+  document.getElementById("parcelas").addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/\D/g, "");
+  });
+});
 
 flatpickr("#filtroMes", {
   locale: "pt",
@@ -45,6 +75,7 @@ function adicionarRenda() {
   localStorage.setItem("rendas", JSON.stringify(rendas));
 
   document.getElementById("rendaInput").value = "";
+  document.getElementById("rendaNome").value = "";
   listarRendas();
   atualizarResumo();
 }
@@ -145,24 +176,42 @@ function excluirGastoFixo(index) {
   atualizarResumo();
 }
 
-
 function adicionarGastoVariavel() {
-  const mes = document.getElementById("filtroMes").value;
-  const nome = document.getElementById("variavelNome").value.trim();
+  const mesInicial = document.getElementById("filtroMes").value;
+  const nomeOriginal = document.getElementById("variavelNome").value.trim();
   const valorStr = formatarValor(document.getElementById("variavelValor").value);
+  const parcelasInput = document.getElementById("parcelas").value;
   const valor = parseFloat(valorStr);
+  const parcelas = parseInt(parcelasInput) || 1;
 
-  if (!nome || isNaN(valor)) {
+  if (!nomeOriginal || isNaN(valor) || parcelas < 1) {
     alert("Preencha os campos de gastos variáveis corretamente.");
     return;
   }
 
   const variaveis = JSON.parse(localStorage.getItem("gastosVariaveis") || "[]");
-  variaveis.push({ mes, nome, valor });
+
+  const valorParcela = parseFloat((valor / parcelas).toFixed(2));
+  const dataBase = new Date(mesInicial + "-01");
+
+  for (let i = 0; i < parcelas; i++) {
+    const mesParcela = new Date(dataBase);
+    mesParcela.setMonth(dataBase.getMonth() + i);
+    const mes = mesParcela.toISOString().slice(0, 7);
+
+    const nomeParcela = parcelas > 1
+      ? `${nomeOriginal} Parc.:${i + 1}/${parcelas}`
+      : nomeOriginal;
+
+    variaveis.push({ mes, nome: nomeParcela, valor: valorParcela });
+  }
+
   localStorage.setItem("gastosVariaveis", JSON.stringify(variaveis));
 
   document.getElementById("variavelNome").value = "";
   document.getElementById("variavelValor").value = "";
+  document.getElementById("parcelas").value = "";
+
   listarGastosVariaveis();
   atualizarResumo();
 }
@@ -208,7 +257,6 @@ function excluirGastoVariavel(index) {
   listarGastosVariaveis();
   atualizarResumo();
 }
-
 
 function atualizarResumo() {
   const mes = document.getElementById("filtroMes").value;
@@ -281,24 +329,6 @@ function atualizarGrafico(renda, fixos, variaveis) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const hoje = new Date();
-  const mesAtual = hoje.toISOString().slice(0, 7);
-  document.getElementById("filtroMes").value = mesAtual;
-
-  listarRendas();
-  listarGastosFixos();
-  listarGastosVariaveis();
-  atualizarResumo();
-
-  document.getElementById("filtroMes").addEventListener("change", () => {
-    listarRendas();
-    listarGastosFixos();
-    listarGastosVariaveis();
-    atualizarResumo();
-  });
-});
-
 function aplicarMascaraMonetaria(input) {
   input.addEventListener("input", () => {
     let valor = input.value.replace(/\D/g, "");
@@ -308,13 +338,6 @@ function aplicarMascaraMonetaria(input) {
     input.value = "R$ " + valor;
   });
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  aplicarMascaraMonetaria(document.getElementById("rendaInput"));
-  aplicarMascaraMonetaria(document.getElementById("fixoValor"));
-  aplicarMascaraMonetaria(document.getElementById("variavelValor"));
-});
-
 
 //controle modal
 let tipoEdicao = "";
@@ -376,7 +399,7 @@ document.getElementById("btnSalvarEdicao").addEventListener("click", () => {
   bootstrap.Modal.getInstance(document.getElementById("modalEditar")).hide();
 });
 
-
+// Registro do Service Worker
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
