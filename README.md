@@ -16,13 +16,6 @@
 
 ---
 
-## 🖼️ Demonstração
-
-![Tela principal com resumo financeiro e gráfico](./screenshot.png)  
-> 💡 *(Você pode colocar um print do app aqui ou GIF mostrando o uso.)*
-
----
-
 ## 🛠️ Tecnologias utilizadas
 
 - HTML5 + CSS3 (com Bootstrap)
