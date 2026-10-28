@@ -21,6 +21,7 @@ body {
   color: #fff;
   border: none;
 }
+
 input.form-control {
   background-color: #343a40 !important;
   color: #ffffff;
@@ -52,7 +53,7 @@ input.form-control::placeholder {
 }
 
 .saldo-positivo {
-  color: #7CFC00; 
+  color: #7CFC00;
   font-weight: bold;
 }
 
@@ -64,4 +65,19 @@ input.form-control::placeholder {
 .saldo-zero {
   color: #87CEFA;
   font-weight: bold;
+}
+
+.flatpickr-calendar,
+.flatpickr-months,
+.flatpickr-month,
+.flatpickr-current-month,
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month .cur-year,
+.flatpickr-monthSelect-month {
+  color: #ffffff !important;
+}
+
+.flatpickr-calendar {
+  background-color: #343a40;
+  border: 1px solid #6c757d;
 }
